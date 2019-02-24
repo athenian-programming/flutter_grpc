@@ -62,13 +62,13 @@ class _FlutterGrpcAppState extends State<FlutterGrpcApp> {
     }
 
     return MaterialApp(
-      title: 'Flutter gRPC Demo',
+      title: 'Flutter HelloWorld',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Flutter gRPC Demo"),
+          title: Text("Flutter HelloWorld"),
         ),
         body: Center(
           child: Column(
