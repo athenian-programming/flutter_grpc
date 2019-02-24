@@ -20,13 +20,12 @@ class _FlutterGrpcAppState extends State<FlutterGrpcApp> {
 
   ClientChannel getClient() {
     if (_clientChannel == null) {
-      _clientChannel = ClientChannel(_hostname.trim(),
-          port: 50051,
-          options: ChannelOptions(
-            //TODO: Change to secure with server certificates
-            credentials: ChannelCredentials.insecure(),
-            idleTimeout: Duration(minutes: 1),
-          ));
+      const options = ChannelOptions(
+        //TODO: Change to secure with server certificates
+          credentials: ChannelCredentials.insecure(),
+          idleTimeout: Duration(minutes: 1)
+      );
+      _clientChannel = ClientChannel(_hostname.trim(), port: 50051, options: options);
     }
     return _clientChannel;
   }

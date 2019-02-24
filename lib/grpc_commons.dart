@@ -2,6 +2,7 @@ import 'package:grpc/grpc.dart';
 
 class GrpcClientSingleton {
   ClientChannel client;
+
   static final GrpcClientSingleton _singleton = new GrpcClientSingleton._internal();
 
   factory GrpcClientSingleton() => _singleton;
