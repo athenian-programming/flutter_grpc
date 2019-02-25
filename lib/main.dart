@@ -158,6 +158,7 @@ class _FlutterGrpcAppState extends State<FlutterGrpcApp> {
           primarySwatch: Colors.blue,
         ),
         home: Scaffold(
+            resizeToAvoidBottomPadding: false,
             appBar: AppBar(
               title: Text("Flutter HelloWorld"),
             ),
