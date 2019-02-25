@@ -16,8 +16,8 @@ class _FlutterGrpcAppState extends State<FlutterGrpcApp> {
   var _currentHostname = "";
   var _nameValue = "";
   var _sliderValue = 10;
-  var _singleGrpcResult = "";
-  var _repeatedGrpcResult = "";
+  var _singleResult = "";
+  var _multipleResults = "";
   var _singleOnPressed;
   var _multipleOnPressed;
 
@@ -51,24 +51,24 @@ class _FlutterGrpcAppState extends State<FlutterGrpcApp> {
     if (_currentHostname.isNotEmpty && _nameValue.isNotEmpty) {
       _singleOnPressed = () async {
         setState(() {
-          _singleGrpcResult = "Waiting...";
+          _singleResult = "Waiting...";
         });
         var name = _nameValue.isNotEmpty ? _nameValue : "None";
         var hello = await HelloService.sayHello(getClient(), name);
         setState(() {
-          _singleGrpcResult = hello.message;
+          _singleResult = hello.message;
         });
       };
 
       _multipleOnPressed = () async {
         setState(() {
-          _repeatedGrpcResult = "Waiting...";
+          _multipleResults = "Waiting...";
         });
 
         var name = _nameValue.isNotEmpty ? _nameValue : "None";
         await for (var hello in HelloService.sayHelloRepeatedly(getClient(), name, _sliderValue)) {
           setState(() {
-            _repeatedGrpcResult = hello.message;
+            _multipleResults = hello.message;
           });
         }
       };
@@ -77,13 +77,13 @@ class _FlutterGrpcAppState extends State<FlutterGrpcApp> {
       _multipleOnPressed = null;
     }
 
-    final hostnameRow = Row(
+    final hostnameSelector = Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Text("gRPC Server: "),
           Container(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.only(right: 16),
           ),
           DropdownButton(
               value: _currentHostname,
@@ -96,7 +96,7 @@ class _FlutterGrpcAppState extends State<FlutterGrpcApp> {
         ]);
 
     final nameInput = Padding(
-        padding: EdgeInsets.fromLTRB(75, 0, 75, 20),
+        padding: EdgeInsets.symmetric(horizontal: 75),
         child: TextField(
           autofocus: true,
           textAlign: TextAlign.center,
@@ -109,7 +109,7 @@ class _FlutterGrpcAppState extends State<FlutterGrpcApp> {
         ));
 
     final slider = Padding(
-        padding: EdgeInsets.fromLTRB(75, 0, 75, 0),
+        padding: EdgeInsets.symmetric(horizontal: 75),
         child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: <Widget>[
           Flexible(
               flex: 1,
@@ -150,7 +150,7 @@ class _FlutterGrpcAppState extends State<FlutterGrpcApp> {
           style: TextStyle(color: Colors.white),
         ));
 
-    final buttonPadding = Padding(padding: const EdgeInsets.symmetric(vertical: 15));
+    final verticalPadding = Padding(padding: const EdgeInsets.symmetric(vertical: 15));
 
     return MaterialApp(
         title: 'Flutter HelloWorld',
@@ -163,19 +163,21 @@ class _FlutterGrpcAppState extends State<FlutterGrpcApp> {
             ),
             body: Center(
                 child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  //mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      hostnameRow,
-                      buttonPadding,
+                      verticalPadding,
+                      hostnameSelector,
+                      verticalPadding,
                       nameInput,
+                      verticalPadding,
                       slider,
-                      buttonPadding,
+                      verticalPadding,
                       singleButton,
-                      Text(_singleGrpcResult.isNotEmpty ? "$_singleGrpcResult" : ""),
-                      buttonPadding,
+                      Text(_singleResult.isNotEmpty ? "$_singleResult" : ""),
+                      verticalPadding,
                       multiButton,
-                      Text(_repeatedGrpcResult.isNotEmpty ? "$_repeatedGrpcResult" : "")
+                      Text(_multipleResults.isNotEmpty ? "$_multipleResults" : "")
                     ]))));
   }
 }
