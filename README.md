@@ -16,8 +16,8 @@ Push a docker image with `make push-docker`
 
 ## Screenshot
 
-![screenshot](https://github.com/athenian-programming/flutter_helloworld/raw/master/docs/SimulatorScreenshot%20.png "Flutter Hello World Screenshot")
+![screenshot](https://github.com/athenian-programming/flutter_helloworld/raw/master/docs/SimulatorScreenshot.png "Flutter Hello World Screenshot")
 
 ## Acknowledgement
 
-Thanks to [Ishaan Bahal](https://medium.com/@ishaanbahal) for providing a [good starting point](https://medium.com/flutter-community/flutter-grpc-810f87612c6d).
+Thanks to [Ishaan Bahal](https://medium.com/@ishaanbahal) for providing a [good starting point](https://medium.com/flutter-community/flutter-grpc-810f87612c6d) for this repo.
