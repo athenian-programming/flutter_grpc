@@ -12,11 +12,14 @@ stubs:
 clean:
 	rm -rf build lib/src/generated
 
-build-docker:
-	docker build -t pambrose/flutter_helloworld:${VERSION} .
+run-local:
+	dart lib/server.dart
 
 run-docker:
 	docker run -p 50051:50051 pambrose/flutter_helloworld:${VERSION}
+
+build-docker:
+	docker build -t pambrose/flutter_helloworld:${VERSION} .
 
 push-docker:
 	docker push pambrose/flutter_helloworld:${VERSION}

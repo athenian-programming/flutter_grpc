@@ -1,16 +1,15 @@
-# flutter_helloworld
+# Flutter Hello World
 
-A new Flutter project.
+A simple Flutter project that uses [gRPC](https://grpc.io) for communications.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Build the gRPC stubs with: `make stubs`
 
-A few resources to get you started if this is your first Flutter project:
+Run the server locally with: `dart lib/server.dart`
 
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
+Run the server via docker with: `docker run -p 50051:50051 -d pambrose/flutter_helloworld:0.1.0`
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+Build a docker image with `make build-docker`
+
+Push a docker image with `make push-docker`
