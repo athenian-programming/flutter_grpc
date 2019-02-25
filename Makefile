@@ -1,4 +1,5 @@
 PROTO_ROOT_DIR = $(shell brew --prefix)/Cellar/protobuf/3.6.1.3_1/include
+VERSION=0.1.0
 
 default: clean stubs
 
@@ -10,3 +11,12 @@ stubs:
 
 clean:
 	rm -rf build lib/src/generated
+
+build-docker:
+	docker build -t pambrose/flutter_helloworld:${VERSION} .
+
+run-docker:
+	docker run -p 50051:50051 pambrose/flutter_helloworld:${VERSION}
+
+push-docker:
+	docker push pambrose/flutter_helloworld:${VERSION}

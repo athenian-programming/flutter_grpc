@@ -1,0 +1,14 @@
+name: flutter_helloworld
+description: Flutter HellWorld Demo
+homepage: https://github.com/athenian-programming/flutter_helloworld
+
+environment:
+  sdk: '>=2.0.0 <3.0.0'
+
+dependencies:
+  async: '>=1.13.3 <3.0.0'
+  grpc: ^0.6.6
+  protobuf: ^0.10.4
+
+dev_dependencies:
+  test: ^1.3.0
