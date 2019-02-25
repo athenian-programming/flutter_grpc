@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_helloworld/services/hello_service.dart';
+import 'package:flutter_helloworld/greeter_service.dart';
 import 'package:grpc/grpc.dart';
 
 void main() => runApp(FlutterGrpcApp());
@@ -54,7 +54,7 @@ class _FlutterGrpcAppState extends State<FlutterGrpcApp> {
           _singleResult = "Waiting...";
         });
         var name = _nameValue.isNotEmpty ? _nameValue : "None";
-        var hello = await HelloService.sayHello(getClient(), name);
+        var hello = await GreeterService.sayHello(getClient(), name);
         setState(() {
           _singleResult = hello.message;
         });
@@ -66,7 +66,7 @@ class _FlutterGrpcAppState extends State<FlutterGrpcApp> {
         });
 
         var name = _nameValue.isNotEmpty ? _nameValue : "None";
-        await for (var hello in HelloService.sayHelloRepeatedly(getClient(), name, _sliderValue)) {
+        await for (var hello in GreeterService.sayHelloRepeatedly(getClient(), name, _sliderValue)) {
           setState(() {
             _multipleResults = hello.message;
           });
