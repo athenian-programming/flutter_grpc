@@ -13,7 +13,7 @@ class _FlutterGrpcAppState extends State<FlutterGrpcApp> {
   ClientChannel _clientChannel;
 
   List _hostnames = ["localhost", "167.99.110.122"];
-  var _currentHostname = "";
+  var _currentHostname;
   var _nameValue = "";
   var _sliderValue = 10;
   var _singleResult = "";
@@ -35,13 +35,13 @@ class _FlutterGrpcAppState extends State<FlutterGrpcApp> {
     return items;
   }
 
-  ClientChannel getClient() {
+  ClientChannel getClientChannel() {
     if (_clientChannel == null) {
       const options = ChannelOptions(
         //TODO: Change to secure with server certificates
           credentials: ChannelCredentials.insecure(),
-          idleTimeout: Duration(minutes: 1));
-      _clientChannel = ClientChannel(_currentHostname.trim(), port: 50051, options: options);
+          idleTimeout: Duration(seconds: 10));
+      _clientChannel = ClientChannel(_currentHostname, port: 50051, options: options);
     }
     return _clientChannel;
   }
@@ -54,7 +54,7 @@ class _FlutterGrpcAppState extends State<FlutterGrpcApp> {
           _singleResult = "Waiting...";
         });
         var name = _nameValue.isNotEmpty ? _nameValue : "None";
-        var hello = await GreeterService.sayHello(getClient(), name);
+        var hello = await GreeterService.sayHello(getClientChannel(), name);
         setState(() {
           _singleResult = hello.message;
         });
@@ -66,7 +66,7 @@ class _FlutterGrpcAppState extends State<FlutterGrpcApp> {
         });
 
         var name = _nameValue.isNotEmpty ? _nameValue : "None";
-        await for (var hello in GreeterService.sayHelloRepeatedly(getClient(), name, _sliderValue)) {
+        await for (var hello in GreeterService.sayHelloRepeatedly(getClientChannel(), name, _sliderValue)) {
           setState(() {
             _multipleResults = hello.message;
           });
