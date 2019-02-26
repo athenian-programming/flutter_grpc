@@ -13,7 +13,7 @@ clean:
 	rm -rf build lib/src/generated
 
 run-local:
-	dart lib/server.dart
+	dart bin/server.dart
 
 run-docker:
 	docker run -p 50051:50051 pambrose/flutter_helloworld:${VERSION}

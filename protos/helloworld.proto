@@ -21,7 +21,6 @@ option objc_class_prefix = "HLW";
 
 package helloworld;
 
-// The greeting service definition.
 service Greeter {
     rpc SayHello (HelloRequest) returns (HelloReply) {
     }
@@ -30,13 +29,11 @@ service Greeter {
     }
 }
 
-// The request message containing the user's name.
 message HelloRequest {
     string name = 1;
     int32 count = 2;
 }
 
-// The response message containing the greetings
 message HelloReply {
     string message = 1;
 }

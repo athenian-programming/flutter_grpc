@@ -13,4 +13,4 @@ RUN pub get --offline
 EXPOSE 50051
 
 CMD []
-ENTRYPOINT ["/usr/bin/dart", "lib/server.dart"]
+ENTRYPOINT ["/usr/bin/dart", "bin/server.dart"]

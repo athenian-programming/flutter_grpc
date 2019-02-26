@@ -124,31 +124,25 @@ class _FlutterGrpcAppState extends State<FlutterGrpcApp> {
           Container(width: 30.0, alignment: Alignment.center, child: Text('${_sliderValue.toInt()}')),
         ]));
 
+    final enabledButtonColor = Theme
+        .of(context)
+        .primaryColor;
+    final disabledButtonColor = Theme
+        .of(context)
+        .primaryColorLight;
+    final textStyle = TextStyle(color: Colors.white);
+
     final singleButton = FlatButton(
         onPressed: _singleOnPressed,
-        color: Theme
-            .of(context)
-            .primaryColor,
-        disabledColor: Theme
-            .of(context)
-            .primaryColorLight,
-        child: Text(
-          "Click for a single result",
-          style: TextStyle(color: Colors.white),
-        ));
+        color: enabledButtonColor,
+        disabledColor: disabledButtonColor,
+        child: Text("Click for a single result", style: textStyle));
 
     final multiButton = FlatButton(
         onPressed: _multipleOnPressed,
-        color: Theme
-            .of(context)
-            .primaryColor,
-        disabledColor: Theme
-            .of(context)
-            .primaryColorLight,
-        child: Text(
-          "Click for multiple results",
-          style: TextStyle(color: Colors.white),
-        ));
+        color: enabledButtonColor,
+        disabledColor: disabledButtonColor,
+        child: Text("Click for multiple results", style: textStyle));
 
     final verticalPadding = Padding(padding: const EdgeInsets.symmetric(vertical: 15));
 
