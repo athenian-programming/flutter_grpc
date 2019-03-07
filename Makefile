@@ -15,11 +15,11 @@ clean:
 run-local:
 	dart bin/server.dart
 
-run-docker:
-	docker run -p 50051:50051 pambrose/flutter_helloworld:${VERSION}
-
 build-docker:
 	docker build -t pambrose/flutter_helloworld:${VERSION} .
+
+run-docker:
+	docker run -p 50051:50051 pambrose/flutter_helloworld:${VERSION}
 
 push-docker:
 	docker push pambrose/flutter_helloworld:${VERSION}
