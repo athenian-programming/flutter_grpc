@@ -1,6 +1,6 @@
-import 'package:flutter_helloworld/grpc_commons.dart';
-import 'package:flutter_helloworld/src/generated/helloworld.pb.dart';
-import 'package:flutter_helloworld/src/generated/helloworld.pbgrpc.dart';
+import 'package:flutter_grpc/grpc_commons.dart';
+import 'package:flutter_grpc/src/generated/helloworld.pb.dart';
+import 'package:flutter_grpc/src/generated/helloworld.pbgrpc.dart';
 
 Future<Null> main(List<String> args) async {
   final channel = GrpcClientSingleton().client;

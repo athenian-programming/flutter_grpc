@@ -1,4 +1,4 @@
-name: flutter_helloworld
+name: flutter_grpc
 description: A Flutter HelloWorld project.
 
 # The following defines the version and build number for your application.
@@ -10,7 +10,7 @@ description: A Flutter HelloWorld project.
 version: 0.9.0+0
 
 environment:
-  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+  sdk: ">=2.4.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -20,8 +20,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
 
-  grpc: ^0.6.6
-  protobuf: ^0.10.4
+  grpc: ^2.0.0+1
+  protobuf: ^0.13.15
 
 dev_dependencies:
   flutter_test:

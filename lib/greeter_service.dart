@@ -1,5 +1,5 @@
-import 'package:flutter_helloworld/src/generated/helloworld.pb.dart';
-import 'package:flutter_helloworld/src/generated/helloworld.pbgrpc.dart';
+import 'package:flutter_grpc/src/generated/helloworld.pb.dart';
+import 'package:flutter_grpc/src/generated/helloworld.pbgrpc.dart';
 import 'package:grpc/grpc.dart';
 
 class GreeterService {

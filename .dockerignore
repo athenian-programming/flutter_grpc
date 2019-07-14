@@ -1,7 +1,7 @@
 .idea
 ios
 android
-flutter_helloworld.iml
+flutter_grpc.iml
 test
 pubspec.*
 proto

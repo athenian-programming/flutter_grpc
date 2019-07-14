@@ -1,6 +1,6 @@
-name: flutter_helloworld
+name: flutter_grpc
 description: Flutter HellWorld Demo
-homepage: https://github.com/athenian-programming/flutter_helloworld
+homepage: https://github.com/athenian-programming/flutter_grpc
 
 environment:
   sdk: '>=2.0.0 <3.0.0'

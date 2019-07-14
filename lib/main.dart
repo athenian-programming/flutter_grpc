@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_helloworld/greeter_service.dart';
+import 'package:flutter_grpc/greeter_service.dart';
 import 'package:grpc/grpc.dart';
 
 void main() => runApp(FlutterGrpcApp());

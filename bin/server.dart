@@ -1,4 +1,4 @@
-import 'package:flutter_helloworld/greeter_impl.dart';
+import 'package:flutter_grpc/greeter_impl.dart';
 import 'package:grpc/grpc.dart';
 
 Future<Null> main(List<String> args) async {

@@ -16,10 +16,10 @@ run-local:
 	dart bin/server.dart
 
 build-docker:
-	docker build -t pambrose/flutter_helloworld:${VERSION} .
+	docker build -t pambrose/flutter_grpc:${VERSION} .
 
 run-docker:
-	docker run -p 50051:50051 pambrose/flutter_helloworld:${VERSION}
+	docker run -p 50051:50051 pambrose/flutter_grpc:${VERSION}
 
 push-docker:
-	docker push pambrose/flutter_helloworld:${VERSION}
+	docker push pambrose/flutter_grpc:${VERSION}
